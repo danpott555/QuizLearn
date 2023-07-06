@@ -24,7 +24,7 @@ public class AddScreenActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rcv);
+        setContentView(R.layout.activity_addtoclass);
         bindingView();
         bindingAction();
         bindDataToRcvDictionary();
