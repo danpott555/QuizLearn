@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="btnStyle">
+        <item name="android:backgroundTint">#0E1D53</item>
+        <item name="android:layout_height">62dp</item>
+        <item name="android:layout_width">162dp</item>
+    </style>
+    <style name="btnLearnStyle">
+        <item name="android:backgroundTint">#0E1D53</item>
+        <item name="android:layout_height">62dp</item>
+        <item name="android:layout_width">162dp</item>
+    </style>
+    <style name="flashcardStyle">
+        <item name="android:background">@drawable/rounded_corner</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:radius">10dp</item>
+    </style>
+</resources>
