@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ScreenActivity"
-    android:background="#000F33">
+    android:layout_height="wrap_content"
+    android:background="#000F33"
+    tools:context=".ScreenActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/bordersolidwhite"
         android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        >
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,8 +46,8 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="0.3"
-            android:gravity="center"
             android:drawableLeft="@drawable/baseline_person_24"
+            android:gravity="center"
             android:text="Sign in"
             android:textAllCaps="true"
             android:textColor="#FFFFFF" />
@@ -51,23 +59,23 @@
         android:layout_width="360dp"
         android:layout_height="139dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="97dp"
         android:layout_marginEnd="32dp"
-        android:textStyle="bold"
         android:text="C. object have to implements Serializable, then putExtra object to intent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <TextView
         android:id="@+id/card_front"
         style="@style/flashcardStyle"
         android:layout_width="360dp"
         android:layout_height="139dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="32dp"
-        android:textStyle="bold"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="97dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="16dp"
         android:text="
         PT2=Q7=How to pass an object to other activity?
         A. object extends Serializable putExtra object to intent
@@ -76,94 +84,97 @@
         D. Can't pass object by intent
         "
         android:textSize="10dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/flip_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <Button
         android:id="@+id/flip_btn"
         style="@style/btnStyle"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="15dp"
         android:text="Flip me"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="380dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_back" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvQA"
-        android:layout_width="match_parent"
+        android:layout_width="376dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_back"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
         android:id="@+id/button2"
         style="@style/btnStyle"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:text="Học"
+        android:layout_marginEnd="36dp"
         android:drawableLeft="@drawable/baseline_360_24"
+        android:text="Học"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <Button
         android:id="@+id/button"
         style="@style/btnStyle"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="21dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="217dp"
+        android:layout_marginEnd="30dp"
         android:drawableLeft="@drawable/baseline_file_copy_24"
         android:text="Thẻ ghi nhớ"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <Button
-        android:id="@+id/button3"
-        style="@style/btnStyle"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="217dp"
-        android:drawableLeft="@drawable/baseline_fact_check_24"
-        android:text="Kiểm tra"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="173dp"
+        android:layout_marginBottom="10dp"
         android:text="Thuật ngữ học trong phần này (3)"
         android:textColor="@color/white"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="457dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="99dp"
         android:text="Bạn đã bắt đầu học những thuật ngữ này. Tiếp tục phát huy nhé!"
         android:textColor="@color/white"
         android:textSize="10dp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="514dp" />
+        app:layout_constraintBottom_toTopOf="@+id/rcvQA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="304dp"
+        android:layout_marginBottom="9dp"
         android:text="Đang học (3)"
         android:textColor="#FF5722"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="486dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

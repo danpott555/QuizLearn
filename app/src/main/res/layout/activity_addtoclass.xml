@@ -5,14 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor">
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bordersolidwhite"
         android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:layout_width="wrap_content"
@@ -36,56 +39,26 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="0.3"
-            android:gravity="center"
             android:drawableLeft="@drawable/baseline_person_24"
+            android:gravity="center"
             android:text="Sign in"
             android:textAllCaps="true"
             android:textColor="#FFFFFF" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="161dp"
-        android:layout_marginBottom="9dp"
-        android:text="Tạo học phần mới "
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/NhapEdt"
-        app:layout_constraintEnd_toStartOf="@+id/AddBtn"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <Button
-        android:id="@+id/AddBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="117dp"
-        android:text="Tạo"
-        app:layout_constraintBottom_toTopOf="@+id/RcvTA"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/NhapEdt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="185dp"
         android:backgroundTint="@color/white"
         android:ems="10"
         android:inputType="text"
         android:text="Nhập tiêu đề"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/MotaEdt"
-        app:layout_constraintEnd_toStartOf="@+id/AddBtn"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -94,44 +67,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="222dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="185dp"
         android:backgroundTint="@color/white"
         android:ems="10"
         android:inputType="text"
         android:text="Thêm mô tả..."
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/RcvTA"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RcvTA"
-        android:layout_width="363dp"
-        android:layout_height="394dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="69dp"
-        android:layout_marginBottom="132dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MotaEdt" />
+        app:layout_constraintTop_toBottomOf="@+id/NhapEdt" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MotaEdt">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RcvTA"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </ScrollView>
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
-        android:layout_marginTop="2dp"
         android:layout_marginEnd="187dp"
         android:layout_marginBottom="82dp"
         android:text="Thêm thẻ"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RcvTA" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button5"
@@ -144,6 +119,18 @@
         android:text="Tạo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="284dp"
+        android:text="Tạo học phần mới"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RcvTA" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,37 +1,37 @@
 package com.smily.quizlearn;
 
 public class HomeScreen_Cards {
-    public String NameHocPhan;
-    public String SLTN;
-    public String Onwer;
+    public String nameHocPhan;
+    public String sLTN;
+    public String owner;
 
-    public HomeScreen_Cards(String nameHocPhan, String SLTN, String onwer) {
-        NameHocPhan = nameHocPhan;
-        this.SLTN = SLTN;
-        Onwer = onwer;
+    public HomeScreen_Cards(String nameHocPhan, String sLTN, String owner) {
+        this.nameHocPhan = nameHocPhan;
+        this.sLTN = sLTN;
+        this.owner = owner;
     }
 
     public String getNameHocPhan() {
-        return NameHocPhan;
+        return nameHocPhan;
     }
 
     public void setNameHocPhan(String nameHocPhan) {
-        NameHocPhan = nameHocPhan;
+        this.nameHocPhan = nameHocPhan;
     }
 
-    public String getSLTN() {
-        return SLTN;
+    public String getsLTN() {
+        return sLTN;
     }
 
-    public void setSLTN(String SLTN) {
-        this.SLTN = SLTN;
+    public void setsLTN(String sLTN) {
+        this.sLTN = sLTN;
     }
 
-    public String getOnwer() {
-        return Onwer;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setOnwer(String onwer) {
-        Onwer = onwer;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 }
