@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.smily.quizlearn.model.FlashCard;
+
 
 public class FlashCardLearn extends Fragment {
     private TextView tvQuestion;
@@ -52,6 +54,11 @@ public class FlashCardLearn extends Fragment {
             frontAnim.start();
             isFront = true;
         }
+    }
+
+    public void setData(FlashCard c){
+        tvQuestion.setText(c.getQuestion());
+        tvAnswer.setText(c.getAnswer());
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

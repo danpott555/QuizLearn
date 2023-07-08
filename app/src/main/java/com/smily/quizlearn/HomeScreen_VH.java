@@ -1,6 +1,7 @@
 package com.smily.quizlearn;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,7 +22,15 @@ public class HomeScreen_VH extends RecyclerView.ViewHolder {
         owner = itemView.findViewById(R.id.tvOwner);
     }
     private void bindingAction(){
+        itemView.setOnClickListener(this::onItemClick);
     }
+
+    private void onItemClick(View view) {
+        Intent i = new Intent(context, LearnScreenActivity.class);
+        i.putExtra("name", nameHocPhan.getText().toString());
+        context.startActivity(i);
+    }
+
     public HomeScreen_VH(@NonNull View itemView, Context context) {
         super(itemView);
         this.context = context;
