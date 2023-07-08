@@ -10,11 +10,14 @@ import java.util.List;
 public class HomeScreenActivity extends AppCompatActivity {
     private RecyclerView rcvMain;
     private List<HomeScreen_Cards> cards;
-    private void bindingAction() {
+    private void bindingView() {
         rcvMain=findViewById(R.id.rcvMain);
     }
 
-    private void bindingView() {
+    private void bindingAction() {
+
+    }
+    private void onClick(){
 
     }
     private void bindDataToRcvDictionary() {

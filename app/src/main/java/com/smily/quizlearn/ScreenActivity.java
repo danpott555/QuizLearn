@@ -4,11 +4,14 @@ import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -55,7 +58,7 @@ public class ScreenActivity extends AppCompatActivity {
     }
     private void bindDataToRcvDictionary() {
         fakeData();
-        //recyclerView.setLayoutManager(new GridLayoutManager(this,1));
+        rcvQA.setLayoutManager(new GridLayoutManager(this,1));
         rcvQA.setAdapter(new Screen_Rcv_Adapter(cards, this));
     }
     public void bindingAction() {
