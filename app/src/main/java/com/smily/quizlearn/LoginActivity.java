@@ -2,6 +2,7 @@ package com.smily.quizlearn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -28,6 +29,9 @@ public class LoginActivity extends AppCompatActivity {
     private void OnClick(View view) {
         if (username.getText().toString().equals("admin") && password.getText().toString().equals("123456")) {
             Toast.makeText(LoginActivity.this, "Login successfully", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, HomeScreenActivity.class);
+            i.putExtra("userId", 1);
+            startActivity(i);
         } else {
             Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
         }

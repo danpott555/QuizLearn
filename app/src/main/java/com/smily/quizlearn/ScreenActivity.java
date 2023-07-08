@@ -55,6 +55,16 @@ public class ScreenActivity extends AppCompatActivity {
                 "B. doOnBackground\n" +
                 "C. onPreExecute\n" +
                 "D. onPostExecute", "B. doOnBackground"));
+        cards.add(new Screen_Rcv_Card("PT3=Q4=Which statement is not a method of Asyntask?\n" +
+                "A. onProgressUpdate\n" +
+                "B. doOnBackground\n" +
+                "C. onPreExecute\n" +
+                "D. onPostExecute", "B. doOnBackground"));
+        cards.add(new Screen_Rcv_Card("PT4=Q4=Which statement is not a method of Asyntask?\n" +
+                "A. onProgressUpdate\n" +
+                "B. doOnBackground\n" +
+                "C. onPreExecute\n" +
+                "D. onPostExecute", "B. doOnBackground"));
     }
     private void bindDataToRcvDictionary() {
         fakeData();
