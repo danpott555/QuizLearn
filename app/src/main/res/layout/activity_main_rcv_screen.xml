@@ -41,6 +41,7 @@
             android:textColor="#FFFFFF" />
 
         <TextView
+            android:id="@+id/txtProfile"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="0.3"
@@ -49,7 +50,13 @@
             android:text="Sign in"
             android:textAllCaps="true"
             android:textColor="#FFFFFF" />
+        <fragment
+            android:id="@+id/frmProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:name="com.smily.quizlearn.Profile_fragment" />
     </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvMain"
@@ -60,5 +67,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

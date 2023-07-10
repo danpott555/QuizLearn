@@ -18,10 +18,18 @@ public class User {
     @NonNull
     private String username;
 
-    public User(String email, String password, String username) {
+    @NonNull
+    private String avatar;
+
+    public User() {
+        this.avatar = "@drawable/avatar.jpg";
+    }
+
+    public User(String email, String password, String username, String avatar) {
         this.email = email;
         this.password = password;
         this.username = username;
+        this.avatar = avatar;
     }
 
     public String getEmail() {
@@ -46,5 +54,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @NonNull
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(@NonNull String avatar) {
+        this.avatar = avatar;
     }
 }

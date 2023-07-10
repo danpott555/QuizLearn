@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+    <RelativeLayout
+        android:id="@+id/rl1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/setColor">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            app:srcCompat="@drawable/avatar" />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:srcCompat="@mipmap/icon_edit_foreground"
+            android:layout_below="@id/avatar"
+            android:layout_marginTop="-28dp"
+            android:layout_toRightOf="@id/avatar"
+            android:layout_marginLeft="-15dp"/>
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/avatar"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:text="Email"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl1">
+
+        <ImageView
+            android:id="@+id/usernameImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/baseline_person_24" />
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/white"
+            android:text="username"
+            android:layout_toRightOf="@id/usernameImage" />
+
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/username"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Do you want to Change Password"
+            android:textColor="@color/setColor"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+        <ImageView
+            android:id="@+id/passImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible"
+            android:layout_below="@id/usernameImage"
+            app:srcCompat="@drawable/baseline_info_24" />
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"
+            android:textColorHint="@color/grey"
+            android:hint="Password"
+            android:backgroundTint="@color/white"
+            android:layout_toRightOf="@id/passImage"
+            android:layout_below="@id/username"/>
+
+        <ImageView
+            android:id="@+id/cfPassImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:visibility="invisible"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/passImage"
+            app:srcCompat="@drawable/baseline_info_24" />
+
+        <EditText
+            android:id="@+id/cfPass"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/white"
+            android:layout_below="@id/pass"
+            android:layout_toRightOf="@id/cfPassImage"
+            android:textColorHint="@color/grey"
+            android:hint="Confirm Password"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:backgroundTint="@color/setColor"
+            android:layout_marginBottom="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
