@@ -20,8 +20,8 @@ public class LoginActivity extends AppCompatActivity {
     MaterialButton btnSignUpInLogin;
 
     public void bindingView() {
-        username = findViewById(R.id.username_signup);
-        password = findViewById(R.id.password_signup);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
         btnLogin = findViewById(R.id.loginbtn);
         btnSignUpInLogin=findViewById(R.id.btnSignUpInLogin);
     }

@@ -3,6 +3,7 @@ package com.smily.quizlearn;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,17 +16,18 @@ import com.smily.quizlearn.roomdatabase.InitDatabase;
 import org.w3c.dom.Text;
 
 public class SignUpActivity extends AppCompatActivity {
-    TextView userName;
-    TextView email;
-    TextView password;
-    TextView rePassword;
+    EditText userName;
+    EditText email;
+    EditText password;
+    EditText rePassword;
     MaterialButton btnSignup;
+
     public void bindingView() {
         userName = findViewById(R.id.username_signup);
-        email=findViewById(R.id.email_signup);
+        email = findViewById(R.id.email_signup);
 
         password = findViewById(R.id.password_signup);
-        rePassword=findViewById(R.id.rePassWord_signup);
+        rePassword = findViewById(R.id.rePassWord_signup);
         btnSignup = findViewById(R.id.btnSignup);
     }
 
@@ -37,20 +39,28 @@ public class SignUpActivity extends AppCompatActivity {
         User user = InitDatabase.getInstance(this)
                 .userDAO()
                 .getUserByEmail(email.getText().toString());
-        if(password.getText().toString()==rePassword.getText().toString())
-        {
-            if(user != null){
-                InitDatabase.getInstance(this)
-                        .userDAO()
-                        .insertUser(new User(email.getText().toString(),password.getText().toString(),userName.getText().toString()));
-                Toast.makeText(this, "SignUp successfully", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(this, "Email already exist!", Toast.LENGTH_SHORT).show();
+        if (!password.getText().toString().equals("")
+                && !userName.getText().toString().equals("")
+                && !email.getText().toString().equals("")
+                && !rePassword.getText().toString().equals("")) {
+
+            if (password.getText().toString().equals(rePassword.getText().toString())) {
+                if (user == null) {
+                    InitDatabase.getInstance(this)
+                            .userDAO()
+                            .insertUser(new User(email.getText().toString(), password.getText().toString(), userName.getText().toString()));
+                    Toast.makeText(this, "SignUp successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Email already exist!", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Password does not match", Toast.LENGTH_SHORT).show();
             }
-        }else{
-            Toast.makeText(this, "Password does not match", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Fill all the field, please", Toast.LENGTH_SHORT).show();
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
