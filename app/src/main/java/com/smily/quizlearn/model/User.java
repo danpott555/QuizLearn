@@ -1,17 +1,20 @@
 package com.smily.quizlearn.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
+@Entity(tableName = "user")
+@TypeConverters({Converters.class})
 public class User {
-    private int id;
+    @PrimaryKey
+    @NonNull
     private String email;
+
+    @NonNull
     private String password;
     private String username;
-
-    public User(int id, String email, String password, String username) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.username = username;
-    }
 
     public User(String email, String password, String username) {
         this.email = email;

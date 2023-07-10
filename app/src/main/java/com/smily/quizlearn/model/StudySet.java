@@ -1,8 +1,15 @@
 package com.smily.quizlearn.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
 import java.util.Date;
 
+@Entity(tableName = "studySet")
+@TypeConverters({Converters.class})
 public class StudySet {
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
     private String createBy;
@@ -21,6 +28,10 @@ public class StudySet {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

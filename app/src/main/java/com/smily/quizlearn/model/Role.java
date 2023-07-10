@@ -1,6 +1,14 @@
 package com.smily.quizlearn.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
+@Entity(tableName = "role")
+@TypeConverters({Converters.class})
 public class Role {
+
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String roleName;
     private String description;
@@ -12,6 +20,10 @@ public class Role {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getRoleName() {

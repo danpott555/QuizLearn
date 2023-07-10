@@ -1,8 +1,16 @@
 package com.smily.quizlearn.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
 import java.util.Date;
 
+@Entity(tableName = "flashcard")
+@TypeConverters({Converters.class})
 public class FlashCard {
+
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private int setId;
     private String question;
@@ -10,9 +18,6 @@ public class FlashCard {
     private Date createDate;
     private Date updateDate;
     private boolean isImportant;
-
-    public FlashCard() {
-    }
 
     public FlashCard(int setId, String question, String answer, Date createDate, Date updateDate, boolean isImportant) {
         this.setId = setId;
@@ -25,6 +30,10 @@ public class FlashCard {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getSetId() {
