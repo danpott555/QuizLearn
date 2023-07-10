@@ -2,7 +2,6 @@ package com.smily.quizlearn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,22 +12,27 @@ import com.google.android.material.button.MaterialButton;
 import com.smily.quizlearn.model.User;
 import com.smily.quizlearn.roomdatabase.InitDatabase;
 
-import java.io.File;
-
 public class LoginActivity extends AppCompatActivity {
 
     TextView username;
     TextView password;
     MaterialButton btnLogin;
+    MaterialButton btnSignUpInLogin;
 
     public void bindingView() {
-        username = findViewById(R.id.username);
-        password = findViewById(R.id.password);
+        username = findViewById(R.id.username_signup);
+        password = findViewById(R.id.password_signup);
         btnLogin = findViewById(R.id.loginbtn);
+        btnSignUpInLogin=findViewById(R.id.btnSignUpInLogin);
     }
 
     public void bindingAction() {
         btnLogin.setOnClickListener(this::OnClick);
+        btnSignUpInLogin.setOnClickListener(this::OnBtnSignUpClick);
+    }
+
+    private void OnBtnSignUpClick(View view) {
+        startActivity(new Intent(this,SignUpActivity.class));
     }
 
     private void OnClick(View view) {
