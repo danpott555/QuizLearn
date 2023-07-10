@@ -14,6 +14,8 @@ public class User {
 
     @NonNull
     private String password;
+
+    @NonNull
     private String username;
 
     public User(String email, String password, String username) {

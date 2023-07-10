@@ -47,20 +47,17 @@ public class LearnScreenActivity extends AppCompatActivity {
                 "Who is your daddy?",
                 "answer",
                 Calendar.getInstance().getTime(),
-                Calendar.getInstance().getTime(),
-                false));
+                Calendar.getInstance().getTime()));
         flashCardList.add(new FlashCard(1,
                 "Who is your mommy?",
                 "answer",
                 Calendar.getInstance().getTime(),
-                Calendar.getInstance().getTime(),
-                false));
+                Calendar.getInstance().getTime()));
         flashCardList.add(new FlashCard(1,
                 "Who is your brother?",
                 "answer",
                 Calendar.getInstance().getTime(),
-                Calendar.getInstance().getTime(),
-                false));
+                Calendar.getInstance().getTime()));
     }
 
     private void onBtnNextClick(View view) {

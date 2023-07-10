@@ -1,31 +1,44 @@
 package com.smily.quizlearn.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
 import java.util.Date;
 
-@Entity(tableName = "flashcard")
+@Entity(tableName = "flashcard",
+        foreignKeys = @ForeignKey(
+                entity = StudySet.class,
+                parentColumns = "id",
+                childColumns = "setId",
+                onDelete = ForeignKey.CASCADE
+        )
+)
 @TypeConverters({Converters.class})
 public class FlashCard {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
+
+    @NonNull
     private int setId;
+
+    @NonNull
     private String question;
+
+    @NonNull
     private String answer;
     private Date createDate;
     private Date updateDate;
-    private boolean isImportant;
 
-    public FlashCard(int setId, String question, String answer, Date createDate, Date updateDate, boolean isImportant) {
+    public FlashCard(int setId, String question, String answer, Date createDate, Date updateDate) {
         this.setId = setId;
         this.question = question;
         this.answer = answer;
         this.createDate = createDate;
         this.updateDate = updateDate;
-        this.isImportant = isImportant;
     }
 
     public int getId() {
@@ -76,11 +89,4 @@ public class FlashCard {
         this.updateDate = updateDate;
     }
 
-    public boolean isImportant() {
-        return isImportant;
-    }
-
-    public void setImportant(boolean important) {
-        isImportant = important;
-    }
 }

@@ -1,17 +1,30 @@
 package com.smily.quizlearn.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
 import java.util.Date;
 
-@Entity(tableName = "studySet")
+@Entity(tableName = "studySet",
+        foreignKeys = @ForeignKey(
+                entity = User.class,
+                parentColumns = "email",
+                childColumns = "createBy",
+                onDelete = ForeignKey.SET_DEFAULT
+        ))
 @TypeConverters({Converters.class})
 public class StudySet {
     @PrimaryKey(autoGenerate = true)
+    @NonNull
     private int id;
+
+    @NonNull
     private String name;
+
+    @NonNull
     private String createBy;
     private Date createDate;
     private Date updateDate;
