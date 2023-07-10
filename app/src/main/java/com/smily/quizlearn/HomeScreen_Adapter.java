@@ -8,13 +8,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.smily.quizlearn.model.StudySet;
+
 import java.util.List;
 
 public class HomeScreen_Adapter extends RecyclerView.Adapter<HomeScreen_VH> {
-    private List<HomeScreen_Cards> data;
+    private List<StudySet> data;
     private Context context;
     private LayoutInflater inflater;
-    public HomeScreen_Adapter(List<HomeScreen_Cards> data,Context context){
+    public HomeScreen_Adapter(List<StudySet> data,Context context){
         this.data=data;
         this.context=context;
         inflater = LayoutInflater.from(context);
@@ -28,7 +30,7 @@ public class HomeScreen_Adapter extends RecyclerView.Adapter<HomeScreen_VH> {
 
     @Override
     public void onBindViewHolder(@NonNull HomeScreen_VH holder, int position) {
-        HomeScreen_Cards c = data.get(position);
+        StudySet c = data.get(position);
         holder.setProduct(c);
     }
 

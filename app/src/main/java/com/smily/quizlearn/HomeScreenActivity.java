@@ -6,12 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.smily.quizlearn.model.StudySet;
+import com.smily.quizlearn.roomdatabase.InitDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeScreenActivity extends AppCompatActivity {
     private RecyclerView rcvMain;
-    private List<HomeScreen_Cards> cards;
+    private List<StudySet> cards;
     private void bindingView() {
         rcvMain=findViewById(R.id.rcvMain);
     }
@@ -25,10 +28,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     private void fakeData(){
         cards = new ArrayList<>();
-        cards.add(new HomeScreen_Cards("PRN", "300", "Tuan Ngu"));
-        cards.add(new HomeScreen_Cards("PRN1", "3001", "Tuan1 Ngu"));
-        cards.add(new HomeScreen_Cards("PRN2", "3002", "Tuan2 Ngu"));
-        cards.add(new HomeScreen_Cards("PRN3", "3003", "Tuan3 Ngu"));
+        cards= InitDatabase.getInstance(this).studySetDAO().getAll();
     }
     private void bindDataToRcvDictionary() {
         fakeData();

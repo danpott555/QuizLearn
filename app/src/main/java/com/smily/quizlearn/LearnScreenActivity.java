@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.smily.quizlearn.model.FlashCard;
+import com.smily.quizlearn.roomdatabase.InitDatabase;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -41,25 +42,6 @@ public class LearnScreenActivity extends AppCompatActivity {
         imgBtnNext.setOnClickListener(this::onBtnNextClick);
     }
 
-    private void fakeData() {
-        flashCardList = new ArrayList<>();
-        flashCardList.add(new FlashCard(1,
-                "Who is your daddy?",
-                "answer",
-                Calendar.getInstance().getTime(),
-                Calendar.getInstance().getTime()));
-        flashCardList.add(new FlashCard(1,
-                "Who is your mommy?",
-                "answer",
-                Calendar.getInstance().getTime(),
-                Calendar.getInstance().getTime()));
-        flashCardList.add(new FlashCard(1,
-                "Who is your brother?",
-                "answer",
-                Calendar.getInstance().getTime(),
-                Calendar.getInstance().getTime()));
-    }
-
     private void onBtnNextClick(View view) {
         if (current_index < flashCardList.size() - 1) {
             flashCardLearn.setData(flashCardList.get(current_index));
@@ -77,8 +59,9 @@ public class LearnScreenActivity extends AppCompatActivity {
 
     private void receivingIntent() {
         Intent i = getIntent();
-        if (i.hasExtra("name")) {
-
+        if (i.hasExtra("setId")) {
+            flashCardList = new ArrayList<>();
+            flashCardList= InitDatabase.getInstance(this).flashCardDAO().getListFlashCard(i.getIntExtra("setId",0));
         }
     }
 
@@ -94,9 +77,9 @@ public class LearnScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn);
-        fakeData();
         bindingView();
         bindingAction();
+        receivingIntent();
     }
 
 
