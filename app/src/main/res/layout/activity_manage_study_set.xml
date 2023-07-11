@@ -2,46 +2,13 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/homeScrView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor"
-    android:focusableInTouchMode="true">
-
+    tools:context=".ManageStudySet"
+    android:background="@color/backgroundColor">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <EditText
-            android:id="@+id/edtSearch"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="5dp"
-            android:background="#30ffffff"
-            android:drawableLeft="@android:drawable/ic_menu_search"
-            android:drawablePadding="20dp"
-            android:hint="Nhập tên học phần ...."
-            android:padding="10dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/homeLinearLayout" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginBottom="28dp"
-            android:text="Các học phần"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/rcvMain"
-            app:layout_constraintStart_toStartOf="parent" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:id="@+id/homeLinearLayout"
@@ -54,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/tvUsername"
+                android:id="@+id/tvUsernameManage"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_weight="0.3"
@@ -64,7 +31,7 @@
                 android:textColor="#FFFFFF" />
 
             <TextView
-                android:id="@+id/tvInsertStudySet"
+                android:id="@+id/tvInsertStudySetManage"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_weight="0.3"
@@ -85,28 +52,13 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcvMain"
+            android:id="@+id/rcvMainManage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="208dp"
-            android:layout_marginEnd="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/homeLinearLayout" />
-
-        <Button
-            android:id="@+id/btnManage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="158dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="159dp"
-            android:text="Quản lý học phần"
+            android:layout_marginTop="173dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeLinearLayout" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -30,6 +31,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     private TextView tvInsertStudySet;
     private EditText edtSearch;
     private User user;
+    private Button btnManage;
 
     private void bindingView() {
         edtSearch = findViewById(R.id.edtSearch);
@@ -39,7 +41,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         homeScrView = findViewById(R.id.homeScrView);
         homeLinearLayout = findViewById(R.id.homeLinearLayout);
         homeScrView.smoothScrollTo(0, homeLinearLayout.getTop());
-
+        btnManage = findViewById(R.id.btnManage);
     }
 
     private void bindingAction() {
@@ -62,6 +64,13 @@ public class HomeScreenActivity extends AppCompatActivity {
 
             }
         });
+        btnManage.setOnClickListener(this::OnBtnManageClick);
+    }
+
+    private void OnBtnManageClick(View view) {
+        Intent i = new Intent(this, ManageStudySet.class);
+        i.putExtra("user", user);
+        startActivity(i);
     }
 
     private void OnTvInsertStudySetClick(View view) {

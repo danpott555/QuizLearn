@@ -18,7 +18,8 @@ public interface StudySetDAO {
 
     @Query("SELECT * FROM studySet")
     List<StudySet> getAll();
-
+    @Query("SELECT * FROM studySet WHERE createBy = :email")
+    List<StudySet> getListCreated(String email);
     @Query("SELECT * FROM studySet WHERE id = :setId")
     StudySet getStudySet(int setId);
 }
