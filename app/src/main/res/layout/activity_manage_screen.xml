@@ -4,54 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor">
+    android:background="@color/backgroundColor"
+    tools:context=".ManageStudySet">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:id="@+id/homeLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bordersolidwhite"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_weight="0.3"
-                android:gravity="center"
-                android:text="Quizlet2"
-                android:textAllCaps="true"
-                android:textColor="#FFFFFF" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_weight="0.3"
-                android:gravity="center"
-                android:text="TRang chủ"
-                android:textAllCaps="true"
-                android:textColor="#FFFFFF" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_weight="0.3"
-                android:drawableLeft="@drawable/baseline_person_24"
-                android:gravity="center"
-                android:text="Sign in"
-                android:textAllCaps="true"
-                android:textColor="#FFFFFF" />
-        </LinearLayout>
-
         <EditText
-            android:id="@+id/NhapEdt"
+            android:id="@+id/NhapEdtManage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -68,7 +29,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvStudySet" />
 
         <EditText
-            android:id="@+id/MotaEdt"
+            android:id="@+id/MotaEdtManage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -82,40 +43,40 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/NhapEdt" />
+            app:layout_constraintTop_toBottomOf="@+id/NhapEdtManage" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RcvTA"
+            android:id="@+id/RcvTAManage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/MotaEdt"></androidx.recyclerview.widget.RecyclerView>
+            app:layout_constraintTop_toBottomOf="@+id/MotaEdtManage"></androidx.recyclerview.widget.RecyclerView>
 
         <Button
-            android:id="@+id/btnAddCard"
+            android:id="@+id/btnAddCardManage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="47dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
             android:text="Thêm thẻ"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/homeLinearLayout" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btnCreate"
+            android:id="@+id/btnCreateManage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="161dp"
             android:layout_marginTop="99dp"
             android:layout_marginEnd="162dp"
-            android:text="Tạo"
+            android:text="Lưu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/RcvTA"
+            app:layout_constraintTop_toBottomOf="@+id/RcvTAManage"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
@@ -124,30 +85,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="284dp"
-            android:text="Tạo học phần mới"
+            android:text="Chỉnh sửa học phần"
             android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/homeLinearLayout" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/edtNameStudyset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="38dp"
-            android:layout_marginEnd="101dp"
-            android:ems="10"
-            android:inputType="text"
-            android:hint="Tên học phần"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/white"
-            android:gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/RcvTA" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

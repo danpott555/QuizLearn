@@ -17,8 +17,7 @@ public class AddScreen_Rcv_VH extends RecyclerView.ViewHolder {
     private EditText DN;
     private Context context;
 
-    private EditText edtQuestion;
-    private EditText edtAnswer;
+
     AddScreen_Rcv_Adapter adapter;
     int currentIndex = 1;
     Button btnDelete;
@@ -27,8 +26,6 @@ public class AddScreen_Rcv_VH extends RecyclerView.ViewHolder {
         STT = itemView.findViewById(R.id.STT);
         TN = itemView.findViewById(R.id.TnEdt);
         DN = itemView.findViewById(R.id.DNEdt);
-        edtQuestion = itemView.findViewById(R.id.NhapEdt);
-        edtAnswer = itemView.findViewById(R.id.MotaEdt);
         btnDelete = itemView.findViewById(R.id.btnDelete);
     }
 
@@ -55,7 +52,6 @@ public class AddScreen_Rcv_VH extends RecyclerView.ViewHolder {
     }
 
     public void setProduct(FlashCard c) {
-
         STT.setText(Integer.toString(getAdapterPosition() + 1));
         DN.setText(c.getAnswer());
         TN.setText(c.getQuestion());

@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="68dp"
             android:layout_marginEnd="5dp"
             android:background="#30ffffff"
             android:drawableLeft="@android:drawable/ic_menu_search"
@@ -28,6 +28,7 @@
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeLinearLayout" />
 
@@ -35,8 +36,8 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="28dp"
             android:text="Các học phần"
             android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/rcvMain"
@@ -89,10 +90,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="156dp"
+            android:layout_marginTop="208dp"
             android:layout_marginEnd="5dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeLinearLayout" />
+
+        <Button
+            android:id="@+id/btnManage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="158dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="159dp"
+            android:text="Quản lý học phần"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeLinearLayout" />
 

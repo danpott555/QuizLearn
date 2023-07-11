@@ -19,7 +19,8 @@ public interface FlashCardDAO {
     List<FlashCard> getListFlashCard(int setId);
     @Delete
     void deleteFlashCard(FlashCard card);
-
+    @Query("DELETE FROM flashcard WHERE setId = :setId")
+    void deleteSet(int setId);
     @Update
     void updateFlashCard(FlashCard card);
 }

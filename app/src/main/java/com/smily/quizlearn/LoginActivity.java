@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.google.android.material.button.MaterialButton;
 import com.smily.quizlearn.model.User;
 import com.smily.quizlearn.roomdatabase.InitDatabase;
+import com.smily.quizlearn.stringhelper.StringHelper;
 
 import org.w3c.dom.Text;
 
@@ -53,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
     private void OnClick(View view) {
         User user = InitDatabase.getInstance(this)
                 .userDAO()
-                .getUser(username.getText().toString(), password.getText().toString());
+                .getUser(username.getText().toString(), new StringHelper().hashPassword(password.getText().toString()));
         if (user != null) {
             Toast.makeText(LoginActivity.this, "Login successfully", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, HomeScreenActivity.class);

@@ -37,7 +37,9 @@ public class FlashCard {
     @Ignore
     public FlashCard() {
     }
-
+    @Ignore
+    public FlashCard(String question, String answer){
+    }
     public FlashCard(int setId, String question, String answer, Date createDate, Date updateDate) {
         this.setId = setId;
         this.question = question;
