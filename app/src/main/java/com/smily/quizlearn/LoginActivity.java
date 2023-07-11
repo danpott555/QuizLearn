@@ -2,9 +2,11 @@ package com.smily.quizlearn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,10 +44,14 @@ public class LoginActivity extends AppCompatActivity {
         if (user != null) {
             Toast.makeText(LoginActivity.this, "Login successfully", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, HomeScreenActivity.class);
-            i.putExtra("email", user.getEmail());
+            i.putExtra("user", user);
             startActivity(i);
         } else {
             Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+        }
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
 

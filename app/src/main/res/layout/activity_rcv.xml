@@ -27,11 +27,12 @@
             tools:ignore="MissingConstraints">
 
             <TextView
+                android:id="@+id/tvUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_weight="0.3"
                 android:gravity="center"
-                android:text="Quizlet2"
+                android:text="Username"
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF" />
 
