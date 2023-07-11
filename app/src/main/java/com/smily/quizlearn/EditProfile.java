@@ -43,6 +43,7 @@ public class EditProfile extends AppCompatActivity {
     }
 
     private void bindingAction() {
+        this.setUser();
         btnUpdate.setOnClickListener(this::UpdateClick);
         question.setOnClickListener(this::ChangePasswordClick);
     }

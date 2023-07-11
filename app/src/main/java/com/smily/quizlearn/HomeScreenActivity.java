@@ -19,19 +19,15 @@ import java.util.List;
 public class HomeScreenActivity extends AppCompatActivity {
     private RecyclerView rcvMain;
     private List<HomeScreen_Cards> cards;
-
     private TextView txtProfile;
-    private View frmProfile;
     private User user;
 
     private void bindingView() {
-        frmProfile = findViewById(R.id.frmProfile);
         rcvMain = findViewById(R.id.rcvMain);
         txtProfile = findViewById(R.id.txtProfile);
     }
 
     private void bindingAction() {
-        frmProfile.setVisibility(View.INVISIBLE);
         txtProfile.setText(user.getUsername());
         txtProfile.setOnClickListener(this::profileClick);
     }
@@ -42,11 +38,11 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         Fragment_profile fragment = new Fragment_profile();
         fragment.setArguments(bundle);
+        fragment.setEmail(user.getEmail());
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frmProfile, fragment)
+                .replace(R.id.frameContentUpdate, fragment)
                 .commit();
-        frmProfile.setVisibility(View.VISIBLE);
     }
 
     private void onClick() {

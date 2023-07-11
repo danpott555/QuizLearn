@@ -31,10 +31,21 @@ public class Fragment_profile extends Fragment {
     }
 
     private void bindingAction() {
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            email = bundle.getString("email");
-        }
+//        Bundle bundle = getArguments();
+//        if (bundle != null) {
+//            email = bundle.getString("email");
+//        }
+//        Intent intent = new Intent(getActivity(), EditProfile.class);
+//        intent.putExtra("email", email);
+//        startActivity(intent);
+        
+        txtProfile.setOnClickListener(this::updateProfileClick);
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    private void updateProfileClick(View view) {
         Intent intent = new Intent(getActivity(), EditProfile.class);
         intent.putExtra("email", email);
         startActivity(intent);
