@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/set_element"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    android:paddingBottom="5dp">
 
     <TextView
         android:id="@+id/STT"
@@ -15,6 +16,7 @@
         android:layout_marginTop="7dp"
         android:layout_marginEnd="285dp"
         android:layout_marginBottom="16dp"
+        android:gravity="center"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/TnEdt"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,12 +56,10 @@
         android:id="@+id/DN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="111dp"
         android:text="Thuật ngữ"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/TN"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TnEdt" />
 
@@ -67,11 +67,11 @@
         android:id="@+id/TN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="164dp"
         android:text="Định Nghĩa"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/DN"
         app:layout_constraintTop_toBottomOf="@+id/DNEdt" />
 
     <Button

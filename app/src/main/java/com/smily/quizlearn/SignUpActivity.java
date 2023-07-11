@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+import com.smily.quizlearn.stringhelper.StringHelper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -54,7 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
                 if (user == null) {
                     InitDatabase.getInstance(this)
                             .userDAO()
-                            .insertUser(new User(email.getText().toString(), password.getText().toString(), userName.getText().toString()));
+                            .insertUser(new User(email.getText().toString(), new StringHelper().hashPassword(password.getText().toString()), userName.getText().toString()));
                     Toast.makeText(this, "SignUp successfully", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(this, "Email already exist!", Toast.LENGTH_SHORT).show();

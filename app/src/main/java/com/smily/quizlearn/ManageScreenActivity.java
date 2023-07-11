@@ -27,9 +27,7 @@ public class ManageScreenActivity extends AppCompatActivity {
     private Button btnCreate;
     private EditText edtQuestion;
     private EditText edtAnswer;
-    private TextView edtNameStudySet;
-    private User user;
-    AddScreen_Rcv_Adapter adapter;
+    private TextView tvStudySet;
     int setId;
     StudySet studySet;
     private void bindingView() {
@@ -39,7 +37,7 @@ public class ManageScreenActivity extends AppCompatActivity {
         btnCreate = findViewById(R.id.btnCreateManage);
         edtQuestion = findViewById(R.id.NhapEdtManage);
         edtAnswer = findViewById(R.id.MotaEdtManage);
-        edtNameStudySet = findViewById(R.id.edtNameStudysetManage);
+        tvStudySet = findViewById(R.id.tvStudySet);
     }
 
     private void bindingAction() {
@@ -63,7 +61,7 @@ public class ManageScreenActivity extends AppCompatActivity {
         if (i.hasExtra("setId")) {
             setId = i.getIntExtra("setId", 0);
             studySet=InitDatabase.getInstance(this).studySetDAO().getStudySet(setId);
-            edtNameStudySet.setText(studySet.getName());
+            tvStudySet.setText(tvStudySet.getText() + " " + studySet.getName());
         }
     }
 
@@ -90,8 +88,8 @@ public class ManageScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_screen);
-        receivingIntent();
         bindingView();
+        receivingIntent();
         bindingAction();
         bindDataToRcvDictionary();
     }
