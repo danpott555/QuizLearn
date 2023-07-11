@@ -27,21 +27,33 @@ public class LearnScreenActivity extends AppCompatActivity {
     FlashCardLearn flashCardLearn;
     ImageButton imgBtnBack;
     ImageButton imgBtnNext;
+    Button btnStart;
     Button btnRmbClose;
     int current_index = 0;
-    int setId;
     List<FlashCard> flashCardList;
 
     private void bindingView() {
         imgBtnBack = findViewById(R.id.imgBtnBack);
         imgBtnNext = findViewById(R.id.imgBtnNext);
         btnRmbClose = findViewById(R.id.btnRememberClose);
+        btnStart = findViewById(R.id.btnStart);
+
+        imgBtnBack.setVisibility(View.INVISIBLE);
+        imgBtnNext.setVisibility(View.INVISIBLE);
     }
 
     private void bindingAction() {
         imgBtnBack.setOnClickListener(this::onBtnBackClick);
         imgBtnNext.setOnClickListener(this::onBtnNextClick);
         btnRmbClose.setOnClickListener(this::OnBtnRmbClose);
+        btnStart.setOnClickListener(this::onBtnStartClick);
+    }
+
+    private void onBtnStartClick(View view) {
+        flashCardLearn.setData(flashCardList.get(0));
+        btnStart.setVisibility(View.INVISIBLE);
+        imgBtnBack.setVisibility(View.VISIBLE);
+        imgBtnNext.setVisibility(View.VISIBLE);
     }
 
     private void OnBtnRmbClose(View view) {
@@ -58,16 +70,14 @@ public class LearnScreenActivity extends AppCompatActivity {
 
     private void onBtnNextClick(View view) {
         if (current_index < flashCardList.size() - 1) {
-            flashCardLearn.setData(flashCardList.get(current_index));
-            current_index++;
+            flashCardLearn.setData(flashCardList.get(++current_index));
         }
 
     }
 
     private void onBtnBackClick(View view) {
         if (current_index > 0) {
-            flashCardLearn.setData(flashCardList.get(current_index));
-            current_index--;
+            flashCardLearn.setData(flashCardList.get(--current_index));
         }
     }
 

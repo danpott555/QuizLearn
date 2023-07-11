@@ -7,12 +7,27 @@
     android:background="@color/backgroundColor">
 
 
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="118dp"
+        android:layout_marginEnd="161dp"
+        android:backgroundTint="@color/btnNextBack"
+        android:gravity="center"
+        android:text="Start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView" />
+
     <ImageButton
         android:id="@+id/imgBtnNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="109dp"
+        android:backgroundTint="@color/btnNextBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgBtnBack"
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
@@ -25,6 +40,7 @@
         android:layout_marginStart="109dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="98dp"
+        android:backgroundTint="@color/btnNextBack"
         app:layout_constraintEnd_toStartOf="@+id/imgBtnNext"
         app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
