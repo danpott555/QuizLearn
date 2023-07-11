@@ -19,6 +19,7 @@ public class LearnScreenChooseActivity extends AppCompatActivity {
     Button btnContinue;
     fragment_flash_card_learn flash_card_learn;
     List<String> listAnswer;
+    Button btnLearnClose;
     int currentPosition = 0;
     int correctAnswer;
     List<FlashCard> flashCardList;
@@ -43,21 +44,35 @@ public class LearnScreenChooseActivity extends AppCompatActivity {
 
     public void bindingView() {
         btnContinue = findViewById(R.id.btnContinue);
+        btnLearnClose=findViewById(R.id.btnLearnClose);
     }
 
     private void bindingAction() {
         btnContinue.setOnClickListener(this::OnClick);
+        btnLearnClose.setOnClickListener(this::OnBtnLearnClose);
+    }
+
+    private void OnBtnLearnClose(View view) {
+        finish();
     }
 
     private void OnClick(View view) {
+
         if (currentPosition < flashCardList.size() - 1) {
             bindingData();
             flash_card_learn.resetAnswerColors();
+            flash_card_learn.enableButton();
             flash_card_learn.setData(flashCard, listAnswer.get(0), listAnswer.get(1), listAnswer.get(2));
             currentPosition++;
             if (currentPosition == flashCardList.size() - 1) {
                 btnContinue.setText("Finish");
             }
+        }
+        if (currentPosition == flashCardList.size() - 1) {
+            Intent i= new Intent(LearnScreenChooseActivity.this,QuizResults.class);
+            i.putExtra("correct",flash_card_learn.countCorrectAnswer());
+            i.putExtra("incorrect",flash_card_learn.countIncorrectAnswer());
+            startActivity(i);
         }
     }
 

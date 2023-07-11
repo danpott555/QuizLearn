@@ -33,7 +33,9 @@
             android:exported="false">
 
         </activity>
-
+        <activity
+            android:name=".AddScreenActivity"
+            android:exported="false"></activity>
 
         <activity
             android:name=".ScreenActivity"

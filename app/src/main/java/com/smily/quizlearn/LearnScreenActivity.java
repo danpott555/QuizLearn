@@ -27,19 +27,33 @@ public class LearnScreenActivity extends AppCompatActivity {
     FlashCardLearn flashCardLearn;
     ImageButton imgBtnBack;
     ImageButton imgBtnNext;
-
+    Button btnRmbClose;
     int current_index = 0;
-
+    int setId;
     List<FlashCard> flashCardList;
 
     private void bindingView() {
         imgBtnBack = findViewById(R.id.imgBtnBack);
         imgBtnNext = findViewById(R.id.imgBtnNext);
+        btnRmbClose = findViewById(R.id.btnRememberClose);
     }
 
     private void bindingAction() {
         imgBtnBack.setOnClickListener(this::onBtnBackClick);
         imgBtnNext.setOnClickListener(this::onBtnNextClick);
+        btnRmbClose.setOnClickListener(this::OnBtnRmbClose);
+    }
+
+    private void OnBtnRmbClose(View view) {
+        onBackPressed();
+    }
+
+    @Override
+    public void onBackPressed() {
+//        Intent i = new Intent(this, ScreenActivity.class);
+//        i.putExtra("setId", setId);
+//        startActivity(i);
+        finish();
     }
 
     private void onBtnNextClick(View view) {
@@ -61,7 +75,7 @@ public class LearnScreenActivity extends AppCompatActivity {
         Intent i = getIntent();
         if (i.hasExtra("setId")) {
             flashCardList = new ArrayList<>();
-            flashCardList= InitDatabase.getInstance(this).flashCardDAO().getListFlashCard(i.getIntExtra("setId",0));
+            flashCardList = InitDatabase.getInstance(this).flashCardDAO().getListFlashCard(i.getIntExtra("setId", 0));
         }
     }
 

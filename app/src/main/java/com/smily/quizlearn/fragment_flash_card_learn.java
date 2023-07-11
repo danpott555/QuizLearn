@@ -34,6 +34,8 @@ public class fragment_flash_card_learn extends Fragment {
     QuestionList questionList;
     List<String> listAnswer;
     String correctAnswer;
+    int countCorrectAnswer;
+    int countIncorrectAnswer;
     public void bindingView(View v){
         a1=v.findViewById(R.id.answer_1);
         a2=v.findViewById(R.id.answer_2);
@@ -54,13 +56,28 @@ public class fragment_flash_card_learn extends Fragment {
             String buttonText=clickedButton.getText().toString();
             if(buttonText.equals(correctAnswer)){
                 RevealAnswer();
+                countCorrectAnswer();
+                disableButton();
             }else{
-                WrongAnswer();
+                WrongAnswer(clickedButton);
+                countIncorrectAnswer();
                 RevealAnswer();
+                disableButton();
             }
         }
     }
-
+    void disableButton(){
+        a1.setEnabled(false);
+        a2.setEnabled(false);
+        a3.setEnabled(false);
+        a4.setEnabled(false);
+    }
+    public void enableButton(){
+        a1.setEnabled(true);
+        a2.setEnabled(true);
+        a3.setEnabled(true);
+        a4.setEnabled(true);
+    }
 
 
     public void setData(FlashCard c, String answer1, String answer2, String answer3){
@@ -94,20 +111,8 @@ public class fragment_flash_card_learn extends Fragment {
             a4.setTextColor(Color.WHITE);
         }
     }
-    private void WrongAnswer(){
-        if(!a1.getText().toString().equals(correctAnswer)){
-            a1.setBackgroundColor(getResources().getColor(R.color.InCorrectAnswer));
-            a1.setTextColor(Color.WHITE);
-        }else if(!a2.getText().toString().equals(correctAnswer)){
-            a2.setBackgroundColor(getResources().getColor(R.color.InCorrectAnswer));
-            a2.setTextColor(Color.WHITE);
-        }else if(!a3.getText().toString().equals(correctAnswer)){
-            a3.setBackgroundColor(getResources().getColor(R.color.InCorrectAnswer));
-            a3.setTextColor(Color.WHITE);
-        }else if(!a4.getText().toString().equals(correctAnswer)){
-            a4.setBackgroundColor(getResources().getColor(R.color.InCorrectAnswer));
-            a4.setTextColor(Color.WHITE);
-        }
+    private void WrongAnswer(Button a){
+        a.setBackgroundColor(getResources().getColor(R.color.InCorrectAnswer));
     }
     public void resetAnswerColors() {
         a1.setBackgroundColor(R.style.btnStyle);
@@ -130,4 +135,11 @@ public class fragment_flash_card_learn extends Fragment {
         bindingAction();
     }
 
+    public int countCorrectAnswer() {
+        return countCorrectAnswer++;
+    }
+
+    public int countIncorrectAnswer() {
+        return countIncorrectAnswer++;
+    }
 }
