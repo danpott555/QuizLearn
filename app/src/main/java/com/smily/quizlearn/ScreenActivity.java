@@ -9,6 +9,8 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,11 +33,17 @@ public class ScreenActivity extends AppCompatActivity {
     Button flip;
     Button btnRememberCard;
     Button btnLearningCard;
+
+    private ScrollView homeScrView;
+    private LinearLayout homeLinearLayout;
     private RecyclerView rcvQA;
     List<FlashCard> flashCardList;
     int setId;
     public void bindingView(){
         rcvQA=findViewById(R.id.rcvQA);
+        homeScrView = findViewById(R.id.homeScrView);
+        homeLinearLayout = findViewById(R.id.homeLinearLayout);
+        homeScrView.smoothScrollTo(0, homeLinearLayout.getTop());
         btnRememberCard = findViewById(R.id.btnRememberCard);
         btnLearningCard = findViewById(R.id.btnLearningCard);
         front = findViewById(R.id.card_front);

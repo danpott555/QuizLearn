@@ -46,7 +46,7 @@ public class HomeScreen_VH extends RecyclerView.ViewHolder {
     public void setProduct(StudySet c) {
         setId=c.getId();
         nameHocPhan.setText(c.getName());
-        sLTN.setText(Integer.toString(InitDatabase.getInstance(context).flashCardDAO().getListFlashCard(c.getId()).size()));
+        sLTN.setText(Integer.toString(InitDatabase.getInstance(context).flashCardDAO().getListFlashCard(c.getId()).size()) + " thuật ngữ");
         owner.setText(c.getCreateBy());
     }
 }
