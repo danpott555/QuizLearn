@@ -30,6 +30,8 @@ public class EditProfile extends AppCompatActivity {
     ImageView iconInfo2;
     TextView email;
     Button btnUpdate;
+
+    ImageView iconBack;
     private User user;
 
 
@@ -45,6 +47,13 @@ public class EditProfile extends AppCompatActivity {
         this.setUser();
         btnUpdate.setOnClickListener(this::UpdateClick);
         question.setOnClickListener(this::ChangePasswordClick);
+        iconBack.setOnClickListener(this::BackToHome);
+    }
+
+    private void BackToHome(View view) {
+        Intent i = new Intent(this, HomeScreenActivity.class);
+        i.putExtra("user", user);
+        startActivity(i);
     }
 
     private void ChangePasswordClick(View view) {
@@ -106,6 +115,7 @@ public class EditProfile extends AppCompatActivity {
         question = findViewById(R.id.question);
         iconInfo1 = findViewById(R.id.passImage);
         iconInfo2 = findViewById(R.id.cfPassImage);
+        iconBack = findViewById(R.id.iconBack);
     }
 
     private void setUser() {

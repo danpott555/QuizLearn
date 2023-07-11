@@ -29,6 +29,8 @@ public class HomeScreenActivity extends AppCompatActivity {
     private TextView tvUsername;
     private TextView tvInsertStudySet;
     private EditText edtSearch;
+
+    private TextView txtLogout;
     private User user;
 
     private void bindingView() {
@@ -39,12 +41,13 @@ public class HomeScreenActivity extends AppCompatActivity {
         homeScrView = findViewById(R.id.homeScrView);
         homeLinearLayout = findViewById(R.id.homeLinearLayout);
         homeScrView.smoothScrollTo(0, homeLinearLayout.getTop());
-//        profile = findViewById(R.id.profile);
+        txtLogout = findViewById(R.id.txtLogout);
     }
 
     private void bindingAction() {
         tvInsertStudySet.setOnClickListener(this::OnTvInsertStudySetClick);
         tvUsername.setOnClickListener(this::updateProfileClick);
+        txtLogout.setOnClickListener(this::logout);
         edtSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -63,6 +66,11 @@ public class HomeScreenActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void logout(View view) {
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
     }
 
     private void updateProfileClick(View view) {

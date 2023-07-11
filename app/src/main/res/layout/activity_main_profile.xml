@@ -39,6 +39,15 @@
             android:textStyle="bold"
             android:textColor="@color/white"/>
 
+        <ImageView
+            android:id="@+id/iconBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/baseline_arrow_right_alt_24"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:rotation="180"/>
+
     </RelativeLayout>
 
     <RelativeLayout
