@@ -2,7 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#B1B1B1</color>
     <color name="backgroundColor">#000F33</color>
+    <color name="avatarBorder">#97B3E4</color>
     <color name="setColor">#556683</color>
     <color name="CorrectAnswer">#29E300</color>
     <color name="InCorrectAnswer">#FF0000</color>

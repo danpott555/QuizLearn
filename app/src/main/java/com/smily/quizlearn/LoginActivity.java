@@ -15,6 +15,8 @@ import com.smily.quizlearn.model.User;
 import com.smily.quizlearn.roomdatabase.InitDatabase;
 import com.smily.quizlearn.stringhelper.StringHelper;
 
+import org.w3c.dom.Text;
+
 public class LoginActivity extends AppCompatActivity {
 
     TextView username;
@@ -22,16 +24,27 @@ public class LoginActivity extends AppCompatActivity {
     MaterialButton btnLogin;
     MaterialButton btnSignUpInLogin;
 
+    TextView forgotPass;
+
     public void bindingView() {
         username = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btnLogin = findViewById(R.id.loginbtn);
         btnSignUpInLogin=findViewById(R.id.btnSignUpInLogin);
+        forgotPass = findViewById(R.id.forgotpass);
     }
 
     public void bindingAction() {
         btnLogin.setOnClickListener(this::OnClick);
         btnSignUpInLogin.setOnClickListener(this::OnBtnSignUpClick);
+        forgotPass.setOnClickListener(this::forgotPass);
+    }
+
+    private void forgotPass(View view) {
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .add(R.id.frgForgotPass, Fragment_Forgot_Pass.class, null)
+                .commit();
     }
 
     private void OnBtnSignUpClick(View view) {

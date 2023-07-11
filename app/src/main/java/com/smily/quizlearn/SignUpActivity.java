@@ -50,6 +50,10 @@ public class SignUpActivity extends AppCompatActivity {
                 && !email.getText().toString().equals("")
                 && !rePassword.getText().toString().equals("")) {
 
+            if (!email.getText().toString().matches("^[\\w\\-\\.]+@fpt\\.edu\\.vn$")) {
+                Toast.makeText(this, "Email is not in FPT Education", Toast.LENGTH_SHORT).show();
+            }
+
             if (password.getText().toString().equals(rePassword.getText().toString())) {
                 if (user == null) {
                     InitDatabase.getInstance(this)

@@ -33,14 +33,17 @@ public class ScreenActivity extends AppCompatActivity {
     Button flip;
     Button btnRememberCard;
     Button btnLearningCard;
+    TextView tvCountFlashCard;
 
     private ScrollView homeScrView;
     private LinearLayout homeLinearLayout;
     private RecyclerView rcvQA;
     List<FlashCard> flashCardList;
     int setId;
-    public void bindingView(){
-        rcvQA=findViewById(R.id.rcvQA);
+
+    public void bindingView() {
+        tvCountFlashCard = findViewById(R.id.tvCountFlashCard);
+        rcvQA = findViewById(R.id.rcvQA);
         homeScrView = findViewById(R.id.homeScrView);
         homeLinearLayout = findViewById(R.id.homeLinearLayout);
         homeScrView.smoothScrollTo(0, homeLinearLayout.getTop());
@@ -56,23 +59,29 @@ public class ScreenActivity extends AppCompatActivity {
         frontAnim = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.animator.front_animator);
         backAnim = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.animator.back_animator);
     }
+
     private void bindDataToRcvDictionary() {
-        rcvQA.setLayoutManager(new GridLayoutManager(this,1));
-        rcvQA.setAdapter(new Screen_Rcv_Adapter(flashCardList, this));
+        rcvQA.setLayoutManager(new GridLayoutManager(this, 1));
+        Screen_Rcv_Adapter screen_rcv_adapter = new Screen_Rcv_Adapter(flashCardList, this);
+        rcvQA.setAdapter(screen_rcv_adapter);
+        tvCountFlashCard.setText(tvCountFlashCard.getText() + " ("+ screen_rcv_adapter.getItemCount() +")");
     }
+
     public void bindingAction() {
         btnLearningCard.setOnClickListener(this::OnBtnLearningCardClick);
         btnRememberCard.setOnClickListener(this::OnBtnRememberCardClick);
         flip.setOnClickListener(this::OnClick);
     }
+
     private void receivingIntent() {
         Intent i = getIntent();
         if (i.hasExtra("setId")) {
             flashCardList = new ArrayList<>();
-            flashCardList= InitDatabase.getInstance(this).flashCardDAO().getListFlashCard(i.getIntExtra("setId",0));
-            setId=i.getIntExtra("setId",0);
+            flashCardList = InitDatabase.getInstance(this).flashCardDAO().getListFlashCard(i.getIntExtra("setId", 0));
+            setId = i.getIntExtra("setId", 0);
         }
     }
+
     private void OnBtnRememberCardClick(View view) {
         Intent i = new Intent(this, LearnScreenActivity.class);
         i.putExtra("setId", setId);
@@ -101,6 +110,7 @@ public class ScreenActivity extends AppCompatActivity {
             isFront = true;
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

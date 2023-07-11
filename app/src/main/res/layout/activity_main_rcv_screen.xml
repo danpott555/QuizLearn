@@ -55,9 +55,10 @@
 
             <TextView
                 android:id="@+id/tvUsername"
-                android:layout_width="wrap_content"
+                android:layout_width="129dp"
                 android:layout_height="50dp"
                 android:layout_weight="0.3"
+                android:drawableLeft="@drawable/baseline_person_24"
                 android:gravity="center"
                 android:text="Username"
                 android:textAllCaps="true"
@@ -74,12 +75,12 @@
                 android:textColor="#FFFFFF" />
 
             <TextView
+                android:id="@+id/txtLogout"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_weight="0.3"
-                android:drawableLeft="@drawable/baseline_person_24"
                 android:gravity="center"
-                android:text="Sign in"
+                android:text="Logout"
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
