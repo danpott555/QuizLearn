@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.smily.quizlearn.model.FlashCard;
+import com.smily.quizlearn.roomdatabase.InitDatabase;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -26,59 +27,65 @@ public class LearnScreenActivity extends AppCompatActivity {
     FlashCardLearn flashCardLearn;
     ImageButton imgBtnBack;
     ImageButton imgBtnNext;
-
+    Button btnStart;
+    Button btnRmbClose;
     int current_index = 0;
-
     List<FlashCard> flashCardList;
 
     private void bindingView() {
         imgBtnBack = findViewById(R.id.imgBtnBack);
         imgBtnNext = findViewById(R.id.imgBtnNext);
+        btnRmbClose = findViewById(R.id.btnRememberClose);
+        btnStart = findViewById(R.id.btnStart);
+
+        imgBtnBack.setVisibility(View.INVISIBLE);
+        imgBtnNext.setVisibility(View.INVISIBLE);
     }
 
     private void bindingAction() {
         imgBtnBack.setOnClickListener(this::onBtnBackClick);
         imgBtnNext.setOnClickListener(this::onBtnNextClick);
+        btnRmbClose.setOnClickListener(this::OnBtnRmbClose);
+        btnStart.setOnClickListener(this::onBtnStartClick);
     }
 
-    private void fakeData() {
-        flashCardList = new ArrayList<>();
-        flashCardList.add(new FlashCard(1,
-                "Who is your daddy?",
-                "answer",
-                Calendar.getInstance().getTime(),
-                Calendar.getInstance().getTime()));
-        flashCardList.add(new FlashCard(1,
-                "Who is your mommy?",
-                "answer",
-                Calendar.getInstance().getTime(),
-                Calendar.getInstance().getTime()));
-        flashCardList.add(new FlashCard(1,
-                "Who is your brother?",
-                "answer",
-                Calendar.getInstance().getTime(),
-                Calendar.getInstance().getTime()));
+    private void onBtnStartClick(View view) {
+        flashCardLearn.setData(flashCardList.get(0));
+        btnStart.setVisibility(View.INVISIBLE);
+        imgBtnBack.setVisibility(View.VISIBLE);
+        imgBtnNext.setVisibility(View.VISIBLE);
+    }
+
+    private void OnBtnRmbClose(View view) {
+        onBackPressed();
+    }
+
+    @Override
+    public void onBackPressed() {
+//        Intent i = new Intent(this, ScreenActivity.class);
+//        i.putExtra("setId", setId);
+//        startActivity(i);
+        finish();
     }
 
     private void onBtnNextClick(View view) {
         if (current_index < flashCardList.size() - 1) {
-            flashCardLearn.setData(flashCardList.get(current_index));
-            current_index++;
+            flashCardLearn.setData(flashCardList.get(++current_index));
         }
 
     }
 
     private void onBtnBackClick(View view) {
         if (current_index > 0) {
-            flashCardLearn.setData(flashCardList.get(current_index));
-            current_index--;
+            flashCardLearn.setData(flashCardList.get(--current_index));
         }
     }
 
     private void receivingIntent() {
         Intent i = getIntent();
-        if (i.hasExtra("name")) {
-
+        if (i.hasExtra("setId")) {
+            flashCardList = new ArrayList<>();
+            flashCardList = InitDatabase.getInstance(this).flashCardDAO().getListFlashCard(i.getIntExtra("setId", 0));
         }
     }
 
@@ -94,9 +101,9 @@ public class LearnScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn);
-        fakeData();
         bindingView();
         bindingAction();
+        receivingIntent();
     }
 
 

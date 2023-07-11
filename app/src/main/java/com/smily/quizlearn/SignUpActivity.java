@@ -21,18 +21,24 @@ public class SignUpActivity extends AppCompatActivity {
     EditText password;
     EditText rePassword;
     MaterialButton btnSignup;
+    MaterialButton btnToLoginScreen;
 
     public void bindingView() {
         userName = findViewById(R.id.username_signup);
         email = findViewById(R.id.email_signup);
-
         password = findViewById(R.id.password_signup);
         rePassword = findViewById(R.id.rePassWord_signup);
         btnSignup = findViewById(R.id.btnSignup);
+        btnToLoginScreen = findViewById(R.id.btnToLoginScreen);
     }
 
     public void bindingAction() {
         btnSignup.setOnClickListener(this::OnClick);
+        btnToLoginScreen.setOnClickListener(this::OnBtnToLoginClick);
+    }
+
+    private void OnBtnToLoginClick(View view) {
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
     private void OnClick(View view) {
@@ -48,7 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
                 if (user == null) {
                     InitDatabase.getInstance(this)
                             .userDAO()
-                            .insertUser(new User(email.getText().toString(), password.getText().toString(), userName.getText().toString(), ""));
+                            .insertUser(new User(email.getText().toString(), password.getText().toString(), userName.getText().toString()));
                     Toast.makeText(this, "SignUp successfully", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(this, "Email already exist!", Toast.LENGTH_SHORT).show();

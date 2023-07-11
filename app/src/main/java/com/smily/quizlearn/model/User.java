@@ -5,9 +5,11 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
+import java.io.Serializable;
+
 @Entity(tableName = "user")
 @TypeConverters({Converters.class})
-public class User {
+public class User implements Serializable {
     @PrimaryKey
     @NonNull
     private String email;
@@ -18,18 +20,18 @@ public class User {
     @NonNull
     private String username;
 
-    @NonNull
-    private String avatar;
+//    @NonNull
+//    private String avatar;
 
-    public User() {
-        this.avatar = "@drawable/avatar.jpg";
-    }
+//    public User() {
+//        this.avatar = "@drawable/avatar.jpg";
+//    }
 
-    public User(String email, String password, String username, String avatar) {
+    public User(String email, String password, String username) {
         this.email = email;
         this.password = password;
         this.username = username;
-        this.avatar = avatar;
+//        this.avatar = avatar;
     }
 
     public String getEmail() {
@@ -56,12 +58,12 @@ public class User {
         this.username = username;
     }
 
-    @NonNull
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(@NonNull String avatar) {
-        this.avatar = avatar;
-    }
+//    @NonNull
+//    public String getAvatar() {
+//        return avatar;
+//    }
+//
+//    public void setAvatar(@NonNull String avatar) {
+//        this.avatar = avatar;
+//    }
 }

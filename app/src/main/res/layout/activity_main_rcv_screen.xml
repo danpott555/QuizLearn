@@ -2,46 +2,77 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeScrView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor">
+    android:background="@color/backgroundColor"
+    android:focusableInTouchMode="true">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
+        <EditText
+            android:id="@+id/edtSearch"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="5dp"
+            android:background="#30ffffff"
+            android:drawableLeft="@android:drawable/ic_menu_search"
+            android:drawablePadding="20dp"
+            android:hint="Nhập tên học phần ...."
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeLinearLayout" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="16dp"
+            android:text="Các học phần"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/rcvMain"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/homeLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="41dp"
             android:background="@drawable/bordersolidwhite"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/rcvMain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/tvUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_weight="0.3"
                 android:gravity="center"
-                android:text="Quizlet2"
+                android:text="Username"
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF" />
 
             <TextView
+                android:id="@+id/tvInsertStudySet"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_weight="0.3"
                 android:gravity="center"
-                android:text="TRang chủ"
+                android:text="Tạo học phần"
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF" />
 
             <TextView
-                android:id="@+id/txtProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_weight="0.3"
@@ -52,26 +83,17 @@
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 
-        <FrameLayout
-            android:id="@+id/frameContentUpdate"
-            android:layout_width="182dp"
-            android:layout_height="110dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="229dp">
-
-        </FrameLayout>
-
         <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvMain"
-        android:layout_width="409dp"
-        android:layout_height="679dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginEnd="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            android:id="@+id/rcvMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="156dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeLinearLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

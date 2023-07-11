@@ -13,10 +13,11 @@
         android:theme="@style/Theme.QuizLearn"
         tools:targetApi="31">
         <activity
+            android:name=".QuizResults"
+            android:exported="false" />
+        <activity
             android:name=".LearnScreenActivity"
-            android:exported="false" >
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -25,22 +26,26 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+        <activity
+            android:name=".LearnScreenChooseActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".AddScreenActivity"
+            android:exported="false"></activity>
+
         <activity
             android:name=".ScreenActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".SignUpActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".HomeScreenActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

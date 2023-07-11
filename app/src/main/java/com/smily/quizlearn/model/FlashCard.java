@@ -3,6 +3,7 @@ package com.smily.quizlearn.model;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
@@ -32,6 +33,10 @@ public class FlashCard {
     private String answer;
     private Date createDate;
     private Date updateDate;
+
+    @Ignore
+    public FlashCard() {
+    }
 
     public FlashCard(int setId, String question, String answer, Date createDate, Date updateDate) {
         this.setId = setId;

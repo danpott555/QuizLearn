@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.smily.quizlearn.model.StudySet;
+import com.smily.quizlearn.roomdatabase.InitDatabase;
+
 import org.w3c.dom.Text;
 
 public class HomeScreen_VH extends RecyclerView.ViewHolder {
@@ -16,6 +19,7 @@ public class HomeScreen_VH extends RecyclerView.ViewHolder {
     private TextView sLTN;
     private TextView owner;
     private Context context;
+    int setId;
     private void bindingView(){
         nameHocPhan= itemView.findViewById(R.id.tvNameHocPhan);
         sLTN = itemView.findViewById(R.id.tvSLTN);
@@ -26,8 +30,8 @@ public class HomeScreen_VH extends RecyclerView.ViewHolder {
     }
 
     private void onItemClick(View view) {
-        Intent i = new Intent(context, LearnScreenActivity.class);
-        i.putExtra("name", nameHocPhan.getText().toString());
+        Intent i = new Intent(context, ScreenActivity.class);
+        i.putExtra("setId", setId);
         context.startActivity(i);
     }
 
@@ -39,9 +43,10 @@ public class HomeScreen_VH extends RecyclerView.ViewHolder {
 
     }
 
-    public void setProduct(HomeScreen_Cards c) {
-        nameHocPhan.setText(c.getNameHocPhan());
-        sLTN.setText(c.getsLTN());
-        owner.setText(c.getOwner());
+    public void setProduct(StudySet c) {
+        setId=c.getId();
+        nameHocPhan.setText(c.getName());
+        sLTN.setText(Integer.toString(InitDatabase.getInstance(context).flashCardDAO().getListFlashCard(c.getId()).size()) + " thuật ngữ");
+        owner.setText(c.getCreateBy());
     }
 }
