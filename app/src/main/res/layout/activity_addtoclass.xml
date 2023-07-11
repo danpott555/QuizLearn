@@ -132,7 +132,7 @@
             app:layout_constraintTop_toBottomOf="@+id/homeLinearLayout" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/edtNameStudyset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
