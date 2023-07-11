@@ -4,53 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_flash_card_learn"
-    android:background="#565E83">
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/set_element"
+    tools:context=".fragment_flash_card_learn">
 
 
     <TextView
         android:id="@+id/question_learn"
-        android:layout_width="355dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="40dp"
+        android:layout_width="313dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
         android:text="Which of the following describes dual-use or multipurpose data?"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.352"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="355dp"
-        android:layout_height="46dp"
+        android:layout_width="297dp"
+        android:layout_height="41dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="40dp"
         android:text="Chọn đáp án đúng"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question_learn" />
 
     <Button
         android:id="@+id/answer_1"
         style="@style/btnLearnStyle"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="41dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
         android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/answer_4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answer_2" />
 
     <Button
         android:id="@+id/answer_2"
         style="@style/btnLearnStyle"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="41dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="9dp"
         android:text="Button"
         app:layout_constraintEnd_toStartOf="@+id/answer_3"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,19 +61,19 @@
     <Button
         android:id="@+id/answer_3"
         style="@style/btnLearnStyle"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/answer_2"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <Button
         android:id="@+id/answer_4"
         style="@style/btnLearnStyle"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="16dp"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/answer_1"
         app:layout_constraintTop_toBottomOf="@+id/answer_3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
