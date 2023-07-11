@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -95,8 +96,10 @@
             android:layout_marginLeft="10dp"
             android:textColorHint="@color/grey"
             android:hint="Password"
+            android:textColor="@color/white"
             android:backgroundTint="@color/white"
             android:layout_toRightOf="@id/passImage"
+            android:inputType="textPassword"
             android:layout_below="@id/username"/>
 
         <ImageView
@@ -121,6 +124,7 @@
             android:textColorHint="@color/grey"
             android:hint="Confirm Password"
             android:textColor="@color/white"
+            android:inputType="textPassword"
             android:textSize="20dp" />
 
         <Button

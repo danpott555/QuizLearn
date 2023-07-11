@@ -25,7 +25,6 @@ public class EditProfile extends AppCompatActivity {
     EditText username;
     EditText password;
     EditText cfPassword;
-
     TextView question;
     ImageView iconInfo1;
     ImageView iconInfo2;
@@ -66,8 +65,8 @@ public class EditProfile extends AppCompatActivity {
                 Toast.makeText(this, "Usename existed", Toast.LENGTH_SHORT).show();
             } else {
                 if (question.getVisibility() == View.INVISIBLE) {
-                    String passUpdate = username.getText().toString();
-                    String cfPassUpdate = username.getText().toString();
+                    String passUpdate = password.getText().toString();
+                    String cfPassUpdate = cfPassword.getText().toString();
                     if (!passUpdate.equals(cfPassUpdate)) {
                         Toast.makeText(this, "Password does not match", Toast.LENGTH_SHORT).show();
                     } else {
@@ -77,6 +76,9 @@ public class EditProfile extends AppCompatActivity {
                                 .userDAO()
                                 .updateUser(user);
                         Toast.makeText(this, "Update Successfully", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(this, EditProfile.class);
+                        i.putExtra("user", user);
+                        startActivity(i);
                     }
                 } else {
                     user.setUsername(usernameUpdate);
@@ -84,6 +86,9 @@ public class EditProfile extends AppCompatActivity {
                             .userDAO()
                             .updateUser(user);
                     Toast.makeText(this, "Update Successfully", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(this, EditProfile.class);
+                    i.putExtra("user", user);
+                    startActivity(i);
                 }
 
             }
@@ -104,12 +109,10 @@ public class EditProfile extends AppCompatActivity {
     }
 
     private void setUser() {
-        Intent intent = new Intent();
-        String emailMeassage = intent.getStringExtra("email");
-        user = InitDatabase.getInstance(this)
-                .userDAO()
-                .getUserByEmail(emailMeassage);
-        username.setText(user.getUsername());
-        email.setText(emailMeassage);
+        user = (User) getIntent().getSerializableExtra("user");
+        if (user != null) {
+            username.setText(user.getUsername());
+            email.setText(user.getEmail());
+        }
     }
 }

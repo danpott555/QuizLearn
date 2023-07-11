@@ -39,11 +39,12 @@ public class HomeScreenActivity extends AppCompatActivity {
         homeScrView = findViewById(R.id.homeScrView);
         homeLinearLayout = findViewById(R.id.homeLinearLayout);
         homeScrView.smoothScrollTo(0, homeLinearLayout.getTop());
-
+//        profile = findViewById(R.id.profile);
     }
 
     private void bindingAction() {
         tvInsertStudySet.setOnClickListener(this::OnTvInsertStudySetClick);
+        tvUsername.setOnClickListener(this::updateProfileClick);
         edtSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -64,8 +65,14 @@ public class HomeScreenActivity extends AppCompatActivity {
         });
     }
 
+    private void updateProfileClick(View view) {
+        Intent i = new Intent(this, EditProfile.class);
+        i.putExtra("user", user);
+        startActivity(i);
+    }
+
     private void OnTvInsertStudySetClick(View view) {
-        Intent i = new Intent(this, AddScreenActivity.class);
+        Intent i = new Intent(HomeScreenActivity.this, AddScreenActivity.class);
         i.putExtra("user", user);
         startActivity(i);
     }
