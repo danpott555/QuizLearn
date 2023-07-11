@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ManageStudySet"
+    android:background="@color/backgroundColor">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/homeLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bordersolidwhite"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvUsernameManage"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="0.3"
+                android:gravity="center"
+                android:text="Username"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvInsertStudySetManage"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="0.3"
+                android:gravity="center"
+                android:text="Tạo học phần"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="0.3"
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:gravity="center"
+                android:text="Sign in"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvMainManage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="173dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeLinearLayout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

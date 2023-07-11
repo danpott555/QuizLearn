@@ -8,13 +8,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.smily.quizlearn.model.FlashCard;
+
 import java.util.List;
 
 public class AddScreen_Rcv_Adapter extends RecyclerView.Adapter<AddScreen_Rcv_VH> {
-    public List<AddScreen_Rcv_CardToAdd> data;
+    public List<FlashCard> data;
     private Context context;
     private LayoutInflater inflater;
-    public AddScreen_Rcv_Adapter(List<AddScreen_Rcv_CardToAdd> data,Context context){
+    public AddScreen_Rcv_Adapter(List<FlashCard> data,Context context){
         this.data=data;
         this.context=context;
         inflater = LayoutInflater.from(context);
@@ -22,13 +24,13 @@ public class AddScreen_Rcv_Adapter extends RecyclerView.Adapter<AddScreen_Rcv_VH
     @NonNull
     @Override
     public AddScreen_Rcv_VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v =inflater.inflate(R.layout.card,parent,false);
-        return new AddScreen_Rcv_VH(v,context);
+        View v =inflater.inflate(R.layout.cardtoadd,parent,false);
+        return new AddScreen_Rcv_VH(v,context).linkAdapter(this);
     }
 
     @Override
     public void onBindViewHolder(@NonNull AddScreen_Rcv_VH holder, int position) {
-        AddScreen_Rcv_CardToAdd c= data.get(position);
+        FlashCard c= data.get(position);
         holder.setProduct(c);
     }
 

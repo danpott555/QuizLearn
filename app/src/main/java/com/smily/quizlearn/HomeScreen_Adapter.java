@@ -8,29 +8,29 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.smily.quizlearn.model.FlashCard;
+import com.smily.quizlearn.model.StudySet;
 
 import java.util.List;
 
-public class Screen_Rcv_Adapter extends RecyclerView.Adapter<Screen_Rcv_VH> {
-    private List<FlashCard> data;
+public class HomeScreen_Adapter extends RecyclerView.Adapter<HomeScreen_VH> {
+    private List<StudySet> data;
     private Context context;
     private LayoutInflater inflater;
-    public Screen_Rcv_Adapter(List<FlashCard> data,Context context){
+    public HomeScreen_Adapter(List<StudySet> data,Context context){
         this.data=data;
         this.context=context;
         inflater = LayoutInflater.from(context);
     }
     @NonNull
     @Override
-    public Screen_Rcv_VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v =inflater.inflate(R.layout.card,parent,false);
-        return new Screen_Rcv_VH(v,context);
+    public HomeScreen_VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = inflater.inflate(R.layout.activity_main_screen_card, parent,false);
+        return new HomeScreen_VH(v,context);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Screen_Rcv_VH holder, int position) {
-        FlashCard c= data.get(position);
+    public void onBindViewHolder(@NonNull HomeScreen_VH holder, int position) {
+        StudySet c = data.get(position);
         holder.setProduct(c);
     }
 

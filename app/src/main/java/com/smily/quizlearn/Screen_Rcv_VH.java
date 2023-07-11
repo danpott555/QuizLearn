@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.smily.quizlearn.model.FlashCard;
+
 public class Screen_Rcv_VH extends RecyclerView.ViewHolder {
     private TextView question;
     private TextView answer;
@@ -25,7 +27,8 @@ public class Screen_Rcv_VH extends RecyclerView.ViewHolder {
 
     }
 
-    public void setProduct(Screen_Rcv_Card c) {
+    public void setProduct(FlashCard c) {
+
         answer.setText(c.getAnswer());
         question.setText(c.getQuestion());
     }

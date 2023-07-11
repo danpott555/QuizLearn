@@ -2,34 +2,57 @@ package com.smily.quizlearn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.smily.quizlearn.model.User;
+import com.smily.quizlearn.roomdatabase.InitDatabase;
+import com.smily.quizlearn.stringhelper.StringHelper;
 
 public class LoginActivity extends AppCompatActivity {
 
     TextView username;
     TextView password;
     MaterialButton btnLogin;
+    MaterialButton btnSignUpInLogin;
 
     public void bindingView() {
-        username = findViewById(R.id.username);
+        username = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btnLogin = findViewById(R.id.loginbtn);
+        btnSignUpInLogin=findViewById(R.id.btnSignUpInLogin);
     }
 
     public void bindingAction() {
         btnLogin.setOnClickListener(this::OnClick);
+        btnSignUpInLogin.setOnClickListener(this::OnBtnSignUpClick);
+    }
+
+    private void OnBtnSignUpClick(View view) {
+        startActivity(new Intent(this,SignUpActivity.class));
     }
 
     private void OnClick(View view) {
-        if (username.getText().toString().equals("admin") && password.getText().toString().equals("123456")) {
+        User user = InitDatabase.getInstance(this)
+                .userDAO()
+                .getUser(username.getText().toString(), new StringHelper().hashPassword(password.getText().toString()));
+        if (user != null) {
             Toast.makeText(LoginActivity.this, "Login successfully", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, HomeScreenActivity.class);
+            i.putExtra("user", user);
+            startActivity(i);
         } else {
             Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+        }
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
 
