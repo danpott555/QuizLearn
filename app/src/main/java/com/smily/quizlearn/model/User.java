@@ -5,9 +5,11 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
+import java.io.Serializable;
+
 @Entity(tableName = "user")
 @TypeConverters({Converters.class})
-public class User {
+public class User implements Serializable {
     @PrimaryKey
     @NonNull
     private String email;

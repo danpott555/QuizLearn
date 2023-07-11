@@ -47,36 +47,13 @@
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
         app:srcCompat="@drawable/baseline_keyboard_arrow_left_24" />
 
-    <TextView
-        android:id="@+id/tvNameRemember"
-        android:layout_width="119dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="4dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="119dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="146dp"
-        android:layout_marginEnd="59dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/btnRememberClose"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNameRemember" />
-
     <Button
         android:id="@+id/btnRememberClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="59dp"
         android:layout_marginTop="4dp"
         android:text="X"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvNameRemember"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
@@ -85,10 +62,10 @@
         android:layout_width="360dp"
         android:layout_height="230dp"
         android:layout_marginStart="43dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="142dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRememberClose" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

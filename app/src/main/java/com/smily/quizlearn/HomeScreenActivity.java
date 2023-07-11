@@ -2,7 +2,10 @@ package com.smily.quizlearn;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -25,31 +28,52 @@ public class HomeScreenActivity extends AppCompatActivity {
     private LinearLayout homeLinearLayout;
     private TextView tvUsername;
     private TextView tvInsertStudySet;
+    private EditText edtSearch;
     private User user;
 
     private void bindingView() {
+        edtSearch = findViewById(R.id.edtSearch);
         tvInsertStudySet = findViewById(R.id.tvInsertStudySet);
         tvUsername = findViewById(R.id.tvUsername);
         rcvMain = findViewById(R.id.rcvMain);
         homeScrView = findViewById(R.id.homeScrView);
         homeLinearLayout = findViewById(R.id.homeLinearLayout);
         homeScrView.smoothScrollTo(0, homeLinearLayout.getTop());
+
     }
 
     private void bindingAction() {
         tvInsertStudySet.setOnClickListener(this::OnTvInsertStudySetClick);
+        edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                cards = new ArrayList<>();
+                cards = InitDatabase.getInstance(getApplicationContext()).studySetDAO().getListBySearch(charSequence.toString());
+                rcvMain.setAdapter(new HomeScreen_Adapter(cards, getApplicationContext()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
     private void OnTvInsertStudySetClick(View view) {
         Intent i = new Intent(this, AddScreenActivity.class);
-        i.putExtra("email", user.getEmail());
+        i.putExtra("user", user);
         startActivity(i);
     }
 
     private void receivingIntent() {
         Intent i = getIntent();
-        if (i.hasExtra("email")) {
-            user = InitDatabase.getInstance(this).userDAO().getUserByEmail(i.getStringExtra("email"));
+        if (i.hasExtra("user")) {
+            user = (User) i.getSerializableExtra("user");
         }
     }
 
