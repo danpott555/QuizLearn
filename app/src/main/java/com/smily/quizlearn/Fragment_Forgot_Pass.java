@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.smily.quizlearn.model.User;
 import com.smily.quizlearn.roomdatabase.InitDatabase;
+import com.smily.quizlearn.stringhelper.StringHelper;
 
 public class Fragment_Forgot_Pass extends Fragment {
     private EditText email;
@@ -57,7 +58,7 @@ public class Fragment_Forgot_Pass extends Fragment {
                 if (!passUpdate.equals(cfPassUpdate)) {
                     Toast.makeText(this.getContext(), "Password does not match", Toast.LENGTH_SHORT).show();
                 } else {
-                    user.setPassword(passUpdate);
+                    user.setPassword(new StringHelper().hashPassword(passUpdate));
                     InitDatabase.getInstance(this.getContext())
                             .userDAO()
                             .updateUser(user);

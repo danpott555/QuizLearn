@@ -17,6 +17,7 @@ import com.smily.quizlearn.model.User;
 import com.smily.quizlearn.roomdatabase.InitDatabase;
 import com.smily.quizlearn.roomdatabase.UserDAO;
 import com.smily.quizlearn.roomdatabase.UserDAO_Impl;
+import com.smily.quizlearn.stringhelper.StringHelper;
 
 import org.w3c.dom.Text;
 
@@ -71,7 +72,7 @@ public class EditProfile extends AppCompatActivity {
                     .userDAO()
                     .getUserByUsername(usernameUpdate, user.getEmail());
             if (checkUsername != null) {
-                Toast.makeText(this, "Usename existed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Username existed", Toast.LENGTH_SHORT).show();
             } else {
                 if (question.getVisibility() == View.INVISIBLE) {
                     String passUpdate = password.getText().toString();
@@ -80,7 +81,7 @@ public class EditProfile extends AppCompatActivity {
                         Toast.makeText(this, "Password does not match", Toast.LENGTH_SHORT).show();
                     } else {
                         user.setUsername(usernameUpdate);
-                        user.setPassword(passUpdate);
+                        user.setPassword(new StringHelper().hashPassword(passUpdate));
                         InitDatabase.getInstance(this)
                                 .userDAO()
                                 .updateUser(user);
