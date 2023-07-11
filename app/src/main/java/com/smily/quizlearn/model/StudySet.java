@@ -3,6 +3,7 @@ package com.smily.quizlearn.model;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
@@ -30,8 +31,17 @@ public class StudySet {
     private Date updateDate;
     private String description;
 
+    @Ignore
     public StudySet(int id, String name, String createBy, Date createDate, Date updateDate, String description) {
         this.id = id;
+        this.name = name;
+        this.createBy = createBy;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
+        this.description = description;
+    }
+
+    public StudySet(String name, String createBy, Date createDate, Date updateDate, String description) {
         this.name = name;
         this.createBy = createBy;
         this.createDate = createDate;

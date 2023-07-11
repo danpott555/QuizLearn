@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     MaterialButton btnSignUpInLogin;
 
     public void bindingView() {
-        username = findViewById(R.id.username);
+        username = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btnLogin = findViewById(R.id.loginbtn);
         btnSignUpInLogin=findViewById(R.id.btnSignUpInLogin);
@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         if (user != null) {
             Toast.makeText(LoginActivity.this, "Login successfully", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, HomeScreenActivity.class);
-            i.putExtra("userId", 1);
+            i.putExtra("email", user.getEmail());
             startActivity(i);
         } else {
             Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();

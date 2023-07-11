@@ -13,7 +13,8 @@ public interface StudySetDAO {
     @Insert
     void insertStudySet(StudySet studySet);
 
-
+    @Query("SELECT * FROM studySet WHERE name LIKE '%' || :search || '%'")
+    List<StudySet> getListBySearch(String search);
 
     @Query("SELECT * FROM studySet")
     List<StudySet> getAll();
