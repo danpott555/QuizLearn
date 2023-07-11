@@ -80,6 +80,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     private void logout(View view) {
         Intent i = new Intent(this, LoginActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
     }
 

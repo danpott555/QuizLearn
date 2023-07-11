@@ -20,7 +20,7 @@
         style="@style/flashcardStyle"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:textSize="10dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="214dp" />
