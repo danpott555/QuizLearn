@@ -52,9 +52,10 @@ public class EditProfile extends AppCompatActivity {
     }
 
     private void BackToHome(View view) {
-        Intent i = new Intent(this, HomeScreenActivity.class);
-        i.putExtra("user", user);
-        startActivity(i);
+//        Intent i = new Intent(this, HomeScreenActivity.class);
+//        i.putExtra("user", user);
+//        startActivity(i);
+        finish();
     }
 
     private void ChangePasswordClick(View view) {

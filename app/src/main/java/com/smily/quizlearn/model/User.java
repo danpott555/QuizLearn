@@ -20,17 +20,24 @@ public class User implements Serializable {
     @NonNull
     private String username;
 
+    @NonNull
+    private String question;
+
+    @NonNull String answer;
+
 //    @NonNull
 //    private String avatar;
 
-//    public User() {
+    public User() {
 //        this.avatar = "@drawable/avatar.jpg";
-//    }
+    }
 
-    public User(String email, String password, String username) {
+    public User(String email, String password, String username, String question, String answer) {
         this.email = email;
         this.password = password;
         this.username = username;
+        this.question = question;
+        this.answer = answer;
 //        this.avatar = avatar;
     }
 
@@ -58,7 +65,25 @@ public class User implements Serializable {
         this.username = username;
     }
 
-//    @NonNull
+    @NonNull
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(@NonNull String question) {
+        this.question = question;
+    }
+
+    @NonNull
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(@NonNull String answer) {
+        this.answer = answer;
+    }
+
+    //    @NonNull
 //    public String getAvatar() {
 //        return avatar;
 //    }
