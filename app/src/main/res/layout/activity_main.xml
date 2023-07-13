@@ -9,12 +9,10 @@
 
     <FrameLayout
         android:id="@+id/frgForgotPass"
-        android:layout_width="300dp"
-        android:layout_height="240dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:elevation="3dp">
-    </FrameLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="3dp"></FrameLayout>
 
     <TextView
         android:id="@+id/signin"
