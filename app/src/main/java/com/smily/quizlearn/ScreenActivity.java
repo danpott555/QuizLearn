@@ -65,6 +65,9 @@ public class ScreenActivity extends AppCompatActivity {
         Screen_Rcv_Adapter screen_rcv_adapter = new Screen_Rcv_Adapter(flashCardList, this);
         rcvQA.setAdapter(screen_rcv_adapter);
         tvCountFlashCard.setText(tvCountFlashCard.getText() + " ("+ screen_rcv_adapter.getItemCount() +")");
+        if (screen_rcv_adapter.getItemCount() < 4){
+            btnLearningCard.setVisibility(View.INVISIBLE);
+        }
     }
 
     public void bindingAction() {
