@@ -36,14 +36,16 @@ public class fragment_flash_card_learn extends Fragment {
     String correctAnswer;
     int countCorrectAnswer;
     int countIncorrectAnswer;
-    public void bindingView(View v){
-        a1=v.findViewById(R.id.answer_1);
-        a2=v.findViewById(R.id.answer_2);
-        a3=v.findViewById(R.id.answer_3);
-        a4=v.findViewById(R.id.answer_4);
-        questions=v.findViewById(R.id.question_learn);
+
+    public void bindingView(View v) {
+        a1 = v.findViewById(R.id.answer_1);
+        a2 = v.findViewById(R.id.answer_2);
+        a3 = v.findViewById(R.id.answer_3);
+        a4 = v.findViewById(R.id.answer_4);
+        questions = v.findViewById(R.id.question_learn);
     }
-    public void bindingAction(){
+
+    public void bindingAction() {
         a1.setOnClickListener(this::OnClick);
         a2.setOnClickListener(this::OnClick);
         a3.setOnClickListener(this::OnClick);
@@ -51,40 +53,65 @@ public class fragment_flash_card_learn extends Fragment {
     }
 
     private void OnClick(View view) {
-        if(view instanceof Button){
-            Button clickedButton=(Button) view;
-            String buttonText=clickedButton.getText().toString();
-            if(buttonText.equals(correctAnswer)){
+        if (view instanceof Button) {
+            Button clickedButton = (Button) view;
+            String buttonText = clickedButton.getText().toString();
+            if (buttonText.equals(correctAnswer)) {
                 RevealAnswer();
+                CheckButton(clickedButton);
                 countCorrectAnswer();
-                disableButton();
-            }else{
+            } else {
                 WrongAnswer(clickedButton);
+                CheckButton(clickedButton);
                 countIncorrectAnswer();
                 RevealAnswer();
-                disableButton();
             }
+            disableButton();
         }
     }
-    void disableButton(){
+
+    void disableButton() {
         a1.setEnabled(false);
         a2.setEnabled(false);
         a3.setEnabled(false);
         a4.setEnabled(false);
     }
-    public void enableButton(){
+
+    public void enableButton() {
         a1.setEnabled(true);
         a2.setEnabled(true);
         a3.setEnabled(true);
         a4.setEnabled(true);
     }
 
-
-    public void setData(FlashCard c, String answer1, String answer2, String answer3){
-        correctAnswer=c.getAnswer();
+    public void CheckButton(Button a) {
+        if (a.getText().equals(a1.getText())) {
+            a1.setTextColor(Color.WHITE);
+            a2.setTextColor(Color.GRAY);
+            a3.setTextColor(Color.GRAY);
+            a4.setTextColor(Color.GRAY);
+        } else if (a.getText().equals(a2.getText())) {
+            a2.setTextColor(Color.WHITE);
+            a1.setTextColor(Color.GRAY);
+            a3.setTextColor(Color.GRAY);
+            a4.setTextColor(Color.GRAY);
+        } else if (a.getText().equals(a3.getText())) {
+            a3.setTextColor(Color.WHITE);
+            a1.setTextColor(Color.GRAY);
+            a2.setTextColor(Color.GRAY);
+            a4.setTextColor(Color.GRAY);
+        } else if (a.getText().equals(a4.getText())) {
+            a4.setTextColor(Color.WHITE);
+            a1.setTextColor(Color.GRAY);
+            a2.setTextColor(Color.GRAY);
+            a3.setTextColor(Color.GRAY);
+        }
+    }
+    public void setData(FlashCard c, String answer1, String answer2, String answer3) {
+        correctAnswer = c.getAnswer();
         questions.setText(c.getQuestion());
-        Random random= new Random();
-        String[] strings={c.getAnswer(),answer1,answer2,answer3};
+        Random random = new Random();
+        String[] strings = {c.getAnswer(), answer1, answer2, answer3};
         for (int i = 0; i < strings.length; i++) {
             int randomIndex = random.nextInt(strings.length);
             String temp = strings[i];
@@ -96,29 +123,36 @@ public class fragment_flash_card_learn extends Fragment {
         a3.setText(strings[2]);
         a4.setText(strings[3]);
     }
-    private void RevealAnswer(){
-        if(a1.getText().toString().equals(correctAnswer)){
+
+    private void RevealAnswer() {
+        if (a1.getText().toString().equals(correctAnswer)) {
             a1.setBackgroundColor(getResources().getColor(R.color.CorrectAnswer));
             a1.setTextColor(Color.WHITE);
-        }else if(a2.getText().toString().equals(correctAnswer)){
+        } else if (a2.getText().toString().equals(correctAnswer)) {
             a2.setBackgroundColor(getResources().getColor(R.color.CorrectAnswer));
             a2.setTextColor(Color.WHITE);
-        }else if(a3.getText().toString().equals(correctAnswer)){
+        } else if (a3.getText().toString().equals(correctAnswer)) {
             a3.setBackgroundColor(getResources().getColor(R.color.CorrectAnswer));
             a3.setTextColor(Color.WHITE);
-        }else if(a4.getText().toString().equals(correctAnswer)){
+        } else if (a4.getText().toString().equals(correctAnswer)) {
             a4.setBackgroundColor(getResources().getColor(R.color.CorrectAnswer));
             a4.setTextColor(Color.WHITE);
         }
     }
-    private void WrongAnswer(Button a){
+
+    private void WrongAnswer(Button a) {
         a.setBackgroundColor(getResources().getColor(R.color.InCorrectAnswer));
     }
+
     public void resetAnswerColors() {
         a1.setBackgroundColor(R.style.btnStyle);
+        a1.setTextColor(Color.WHITE);
         a2.setBackgroundColor(R.style.btnStyle);
+        a2.setTextColor(Color.WHITE);
         a3.setBackgroundColor(R.style.btnStyle);
+        a3.setTextColor(Color.WHITE);
         a4.setBackgroundColor(R.style.btnStyle);
+        a4.setTextColor(Color.WHITE);
     }
 
     @Override

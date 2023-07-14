@@ -57,10 +57,9 @@ public class LearnScreenChooseActivity extends AppCompatActivity {
     }
 
     private void OnClick(View view) {
-
+        flash_card_learn.resetAnswerColors();
         if (currentPosition < flashCardList.size() - 1) {
             bindingData();
-            flash_card_learn.resetAnswerColors();
             flash_card_learn.enableButton();
             flash_card_learn.setData(flashCard, listAnswer.get(0), listAnswer.get(1), listAnswer.get(2));
             currentPosition++;
