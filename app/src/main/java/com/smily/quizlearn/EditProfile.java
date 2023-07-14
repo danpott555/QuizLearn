@@ -97,8 +97,8 @@ public class EditProfile extends AppCompatActivity {
                             .userDAO()
                             .updateUser(user);
                     Toast.makeText(this, "Update Successfully", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(this, EditProfile.class);
-                    i.putExtra("user", user);
+                    Intent i = new Intent(this, LoginActivity.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                 }
 
