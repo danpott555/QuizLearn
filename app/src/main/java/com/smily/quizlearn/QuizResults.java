@@ -19,7 +19,6 @@ public class QuizResults extends AppCompatActivity {
         correctAnswer=findViewById(R.id.correctAnswer);
         incorrectAnswer=findViewById(R.id.IncorrectAnswer);
 
-
     }
     private void bindingAction(){
         int GetCorrectAnswers=getIntent().getIntExtra("correct",0);
@@ -30,12 +29,10 @@ public class QuizResults extends AppCompatActivity {
     }
 
     private void OnClick(View view) {
-        startActivity(new Intent(QuizResults.this,LearnScreenChooseActivity.class));
         finish();
     }
     @Override
     public void onBackPressed(){
-        startActivity(new Intent(QuizResults.this,LearnScreenChooseActivity.class));
         finish();
     }
 
